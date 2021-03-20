@@ -41,36 +41,36 @@ class UtilisateurController extends AbstractController
     /**
      * @Route("/new", name="utilisateur_new", methods={"GET","POST"})
      */
-    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder, Session $session): Response
-    {
+//     public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder, Session $session): Response
+//     {
 
-            //test de sécurité, un utilisateur connecté ne peut pas s'inscrire
-            $utilisateur = $this->getUser();
-            if($utilisateur)
-            {
-                    $session->set("message", "Vous ne pouvez pas créer un compte lorsque vous êtes connecté");
-                    return $this->redirectToRoute('membre');
-            }
+//             //test de sécurité, un utilisateur connecté ne peut pas s'inscrire
+//             $utilisateur = $this->getUser();
+//             if($utilisateur)
+//             {
+//                     $session->set("message", "Vous ne pouvez pas créer un compte lorsque vous êtes connecté");
+//                     return $this->redirectToRoute('membre');
+//             }
 
-            $utilisateur = new Utilisateur();
-            $form = $this->createForm(UtilisateurType::class, $utilisateur);
-            $form->handleRequest($request);
+//             $utilisateur = new Utilisateur();
+//             $form = $this->createForm(UtilisateurType::class, $utilisateur);
+//             $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                    $entityManager = $this->getDoctrine()->getManager();
-                    $utilisateur->setPassword($passwordEncoder->encodePassword($utilisateur, $utilisateur->getPassword()));
+//             if ($form->isSubmitted() && $form->isValid()) {
+//                     $entityManager = $this->getDoctrine()->getManager();
+//                     $utilisateur->setPassword($passwordEncoder->encodePassword($utilisateur, $utilisateur->getPassword()));
 
-                    $entityManager->persist($utilisateur);
-                    $entityManager->flush();
+//                     $entityManager->persist($utilisateur);
+//                     $entityManager->flush();
 
-                    return $this->redirectToRoute('utilisateur_index');
-            }
+//                     return $this->redirectToRoute('utilisateur_index');
+//             }
 
-            return $this->render('utilisateur/new.html.twig', [
-            'utilisateur' => $utilisateur,
-            'form' => $form->createView(),
-            ]);
-    }
+//             return $this->render('utilisateur/new.html.twig', [
+//             'utilisateur' => $utilisateur,
+//             'form' => $form->createView(),
+//             ]);
+//     }
 
     /**
      * @Route("/{id}", name="utilisateur_show", methods={"GET"})
