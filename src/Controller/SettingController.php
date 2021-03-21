@@ -10,85 +10,40 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
  * @Route("/setting")
  */
 class SettingController extends AbstractController
 {
-    /**
-     * @Route("/", name="setting_index", methods={"GET"})
-     */
-    public function index(SettingRepository $settingRepository): Response
-    {
-        return $this->render('setting/index.html.twig', [
-            'settings' => $settingRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="setting_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $setting = new Setting();
-        $form = $this->createForm(SettingType::class, $setting);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($setting);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('setting_index');
-        }
-
-        return $this->render('setting/new.html.twig', [
-            'setting' => $setting,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="setting_show", methods={"GET"})
-     */
-    public function show(Setting $setting): Response
-    {
-        return $this->render('setting/show.html.twig', [
-            'setting' => $setting,
-        ]);
-    }
+   
 
     /**
      * @Route("/{id}/edit", name="setting_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Setting $setting): Response
+    public function edit(SettingRepository $rep,Request $request, Setting $setting): Response
     {
-        $form = $this->createForm(SettingType::class, $setting);
+    
+        $set =$rep->find($setting);
+        $form = $this->createForm(SettingType::class,$setting);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('setting_index');
+        if($form->isSubmitted() && $form->isValid()){
+            $imageFile = $form->get('logo')->getData();
+            $fileName=md5(uniqid()).'.'.$imageFile->getExtension();
+            $imageFile->move($this->getParameter('image_directory'),$fileName);
+            $set->setLogo($fileName);
+            $article = $form->getData();
+            $entityManager=$this->getDoctrine()->getManager();
+            $entityManager->persist($set);
+            $entityManager->flush();
+            
         }
 
         return $this->render('setting/edit.html.twig', [
-            'setting' => $setting,
+            'setting' => $set,
             'form' => $form->createView(),
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="setting_delete", methods={"POST"})
-     */
-    public function delete(Request $request, Setting $setting): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$setting->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($setting);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('setting_index');
-    }
+    
 }

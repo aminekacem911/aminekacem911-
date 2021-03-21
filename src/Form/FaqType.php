@@ -2,26 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Setting;
+use App\Entity\Faq;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-class SettingType extends AbstractType
+use Symfony\Component\Form\Extension\Core\Type\textType;
+class FaqType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('logo', FileType::class,  array('data_class' => null))
-            ->add('mobile')
+            ->add('question')
+            ->add('answer');
+        
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Setting::class,
+            'data_class' => Faq::class,
         ]);
     }
 }

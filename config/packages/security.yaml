@@ -41,5 +41,5 @@ security:
                 - { path: ^/utilisateur/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
                 # bloque toutes les routes commençant par /utilisateur sauf la ligne du dessus
-                - { path: ^/utilisateur, roles: ROLE_USER }
+                - { path: ^/utilisateur, roles: ROLE_ADMIN }
                 - { path: ^/membre, roles: IS_AUTHENTICATED_FULLY }

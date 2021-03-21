@@ -1,56 +1,26 @@
 
 {% extends 'navigation/adminBase.html.twig' %}
- {% block stylesheets %}
-       
-        <link href="/css/accordion.css" rel="stylesheet" >
-{% endblock %}
+
 {% block body %}
 
- 
-    {{ include('setting/_form.html.twig', {'button_label': 'Update'}) }}
 
-   
+    {# {{ include('setting/_form.html.twig', {'button_label': 'Update'}) }}
+
+    #}
 <div class="section__content section__content--p30">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-  
+
                     <div class="card-header">Website Setting</div>
                     <div class="card-body">
                         <div class="card-title">
-                        {{dump(form.logo)}}
+
                             <h3 class="text-center title-2">Informations</h3>
                         </div>
                         <hr>
-                        <form action="" method="post" enctype="multipart/form-data">
-                           <input type="hidden" name="_csrf_token"
-                        value="{{ csrf_token('authenticate') }}">
-                            <div class="form-group">
-                                <label for="" class="control-label mb-1">Title</label>
-                                <input id="" name="{{form.title.vars.full_name}}" type="text" value="{{form.title.vars.data}}" class="form-control">
-                            </div>
-                            <div class="form-group has-success">
-                                <label for="" class="control-label mb-1">Mobile</label>
-                                <input id="" name="{{form.mobile.vars.full_name}}" type="tel" value="{{form.mobile.vars.data}}" class="form-control cc-name valid">
-                                
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="control-label mb-1">Logo</label>
-                                
-                                <input id="" name="{{form.logo.vars.full_name}}" type="file"
-                                    class="form-control " value="{{form.logo.vars.data}}" >
-                               
-                            </div>
-                          
-                            <div>
-                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                   <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                                    <span id="payment-button-amount">{{ button_label|default('Save') }}</span> 
-                                </button>
-                            </div>
-                            
-                        </form>
-
-  
+                           <img src="{{asset('img/')}}{{setting.logo}}" style="width:300px;height:300px" alt="">
+                        {{ include('setting/_form.html.twig', {'button_label': 'Update'}) }}
+                        
 {% endblock %}
