@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 use App\Entity\Utilisateur;
+use App\Entity\Setting;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -24,6 +25,13 @@ class AppFixtures extends Fixture
         $password = $this->encoder->encodePassword($user, 'password');
         $user->setPassword($password);
         $manager->persist($user);
+        $manager->flush();
+
+        $setting = new Setting();
+        $setting->setTitle('NetflixMDB');
+        $setting->setLogo('/img/logo.png');
+        $setting->setMobile('+21693387306');
+        $manager->persist($setting);
         $manager->flush();
     }
 }

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Setting{% endblock %}
+
+{% block body %}
+    <h1>Setting</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ setting.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ setting.title }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ setting.logo }}</td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td>{{ setting.mobile }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('setting_index') }}">back to list</a>
+
+    <a href="{{ path('setting_edit', {'id': setting.id}) }}">edit</a>
+
+    {{ include('setting/_delete_form.html.twig') }}
+{% endblock %}

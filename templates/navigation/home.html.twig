@@ -1,34 +1,164 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+       
+       <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+      <link href="/css/accordion.css" rel="stylesheet" media="all">
+  
+        {% endblock %}
 
+
+        {% block javascripts %}
+          <script src="/js/script.js"></script>
+        {% endblock %}
+        
 {% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-        <h1>Mon super site</h1>
+<div class="main">
+        <div class="area">
+                <h1>Unlimited movies, TV <br>shows, and more.</h1>
+                
+        </div>
 
-        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-        feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris
-        placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi.
-         Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+</div>
+<div class="container1">
+        <div class="text">
+                <h1>Enjoy on your TV.
+                </h1>
+                <p>
+                        Watchx on Smart TVs, Playstation, Xbox, <br>
+                        Chromecast, Apple TV, Blu-ray players, and<br>
+                        more.
+                </p>
+        </div>
+        <div class="image">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png">
+        </div>
+</div>
+<div class="container1">
 
-        <h2>Header Level 2</h2>
-        <ol>
-                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                <li>Aliquam tincidunt mauris eu risus.</li>
-        </ol>
-        <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna.
-        Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa.
-        Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+        <div class="image">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile.png">
+        </div>
+        <div class="text">
+                <h1>Download your shows to watch on the go.
+                </h1>
+                <p>
+                        Save your data and watch all your favorites offline.
+                </p>
+        </div>
 
-        <h3>Header Level 3</h3>
-        <ul>
-                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                <li>Aliquam tincidunt mauris eu risus.</li>
-        </ul>
-        <pre><code>
-                #header h1 a {
-                display: block;
-                width: 300px;
-                height: 80px;
-                }
-        </code></pre>
+</div>
+<div class="container1">
+        <div class="text">
+                <h1>Watch everywhere.
+
+                </h1>
+                <p>
+                        Stream unlimited movies and TV shows on <br>your phone, tablet, laptop, and TV without paying
+                        more.
+
+                </p>
+        </div>
+        <div class="image">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png">
+        </div>
+</div>
+<div class="container">
+ 
+  <h2>Frequently Asked Questions</h2>
+ 
+  <div class="accordion">
+    <div class="accordion-item">
+      <a>What can JavaScript Do?</a>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <a>How JavaScript Can Modify HTML and CSS Values?</a>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <a>What Is SVG?</a>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <a>Is FAQ Section Matters In Website?</a>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <a>How To Create a Light FAQ Element?</a>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</div>
+<div class="footer">
+
+
+        <div class="footercon">
+                <div class="flex1">
+                        <h5>Questions? Call 1-866-579-7172
+                        </h5>
+                        <h5>
+                        </h5>
+                </div>
+
+                <ul class="list1">
+
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">Investor Relation</a></li>
+                        <li><a href="">Ways to Watch</a></li>
+
+                        <li><a href="">Corporate Information</a></li>
+                        <li><a href="">Netflix Originals</a></li>
+                </ul>
+                <ul class="list1">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Jobs</a></li>
+                        <li><a href="">Terms of Use</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">#</a></li>
+                </ul>
+                <ul class="list1">
+                        <li><a href="">Account</a></li>
+                        <li><a href="">Redeem Gift Cards</a></li>
+                        <li><a href="">Privacy</a></li>
+                        <li><a href="">Speed Test</a></li>
+                        <li><a href="">#</a></li>
+
+                </ul>
+                <ul class="list1">
+                        <li><a href="">Media Center</a>
+                        </li>
+                        <li><a href="">Buy Gift Cards</a></li>
+                        <li><a href="">Cookie Preferences</a></li>
+                        <li><a href="">Legal Notices</a></li>
+                        <li><a href="">#</a></li>
+
+                </ul>
+
+        </div>
+
+</div>
+<div class="end">
+        <h2>
+                Netflix US
+        </h2>
+        <h2>
+        </h2>
+</div>
+
+
+
 {% endblock %}
