@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
 
         $setting = new Setting();
         $setting->setTitle('NetflixMDB');
-        $setting->setLogo('/img/logo.png');
+        $setting->setLogo('logo.png');
         $setting->setMobile('+21693387306');
         $manager->persist($setting);
         $manager->flush();

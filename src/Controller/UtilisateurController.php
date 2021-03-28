@@ -11,9 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
-/**
- * @Route("/utilisateur")
- */
+
 class UtilisateurController extends AbstractController
 {
     /**
@@ -38,38 +36,40 @@ class UtilisateurController extends AbstractController
             return $this->redirectToRoute('home');
     }
 
-    /**
-     * @Route("/new", name="utilisateur_new", methods={"GET","POST"})
-     */
-//     public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder, Session $session): Response
+//     /**
+//      * @Route("/register", name="register", methods={"GET","POST"})
+//      */
+//     public function new( UtilisateurRepository $rep ,  Request $request, UserPasswordEncoderInterface $passwordEncoder, Session $session): Response
 //     {
 
-//             //test de sécurité, un utilisateur connecté ne peut pas s'inscrire
-//             $utilisateur = $this->getUser();
-//             if($utilisateur)
-//             {
-//                     $session->set("message", "Vous ne pouvez pas créer un compte lorsque vous êtes connecté");
-//                     return $this->redirectToRoute('membre');
-//             }
-
+              
 //             $utilisateur = new Utilisateur();
+
 //             $form = $this->createForm(UtilisateurType::class, $utilisateur);
 //             $form->handleRequest($request);
-
-//             if ($form->isSubmitted() && $form->isValid()) {
-//                     $entityManager = $this->getDoctrine()->getManager();
-//                     $utilisateur->setPassword($passwordEncoder->encodePassword($utilisateur, $utilisateur->getPassword()));
-
-//                     $entityManager->persist($utilisateur);
-//                     $entityManager->flush();
-
-//                     return $this->redirectToRoute('utilisateur_index');
-//             }
-
-//             return $this->render('utilisateur/new.html.twig', [
-//             'utilisateur' => $utilisateur,
-//             'form' => $form->createView(),
-//             ]);
+//                 $user = $rep->findAll();
+//                 foreach ($user as $u){
+//                         //dd($form['email']->getData());
+//                         //dd($u->getEmail());
+//                         if ($u->getEmail() == $form['email']->getData()){
+//                                 $this->addFlash('error', 'email already in use!');
+//                                return $this->redirectToRoute('register');
+//                         }
+//                 }
+//                 if ($form->isSubmitted() && $form->isValid()) {
+//                         $entityManager = $this->getDoctrine()->getManager();
+//                         $utilisateur->setPassword($passwordEncoder->encodePassword($utilisateur, $utilisateur->getPassword()));
+    
+//                         $entityManager->persist($utilisateur);
+//                         $entityManager->flush();
+    
+//                         return $this->redirectToRoute('membre');
+//                 }
+    
+//                 return $this->render('utilisateur/new.html.twig', [
+//                 'utilisateur' => $utilisateur,
+//                 'form' => $form->createView(),
+//                 ]);
 //     }
 
     /**
@@ -95,6 +95,7 @@ class UtilisateurController extends AbstractController
                     $session->set("message", "Vous ne pouvez pas modifier cet utilisateur");
                     return $this->redirectToRoute('membre');
             }
+            
             $form = $this->createForm(UtilisateurType::class, $utilisateur);
             $form->handleRequest($request);
 

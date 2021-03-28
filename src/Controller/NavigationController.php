@@ -33,7 +33,7 @@ class NavigationController extends AbstractController
     public function membre(Session $session)
         {
                 $return = [];
-
+               // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
                 if($session->has('message'))
                 {
                         $message = $session->get('message');
@@ -50,7 +50,7 @@ class NavigationController extends AbstractController
        // $movie = new MovieInformation('The Matrix', array('plot'=>'full', 'tomatoes'=>'true'));
         //$title = $movie->title; 
         $imdb = new Imdb;
-        $res = $imdb->film("the matrix");
+        $res = $imdb->film("the lod of the rings");
             return $this->render('navigation/movies.html.twig',compact('res'));
     }
 
@@ -66,17 +66,11 @@ class NavigationController extends AbstractController
                         return $this->redirectToRoute('app_login');
                 }
 
-                else if(in_array('ROLE_ADMIN', $utilisateur->getRoles())){
+                if (in_array('ROLE_ADMIN', $utilisateur->getRoles())){
                         return $this->render('navigation/admin.html.twig');
                 }
-                $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
-                if($session->has('message'))
-                {
-                        $message = $session->get('message');
-                        $session->remove('message'); //on vide la variable message dans la session
-                        $return['message'] = $message; //on ajoute à l'array de paramètres notre message
-                }
-                return $this->redirectToRoute('home', $return);
+              
+                //return $this->redirectToRoute('/membre', $return);
 
         }
 

@@ -1,4 +1,15 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+      {{ form_start(form) }}
+                                <div class="form-group">
+                                    {{ form_label(form.email, 'Email') }}
+                        {{ form_widget(form.email, { 'attr': {'class': 'au-input au-input--full'} }) }}
+                                </div>
+                                <div class="form-group">
+                      
+                        {{ form_label(form.password, 'Password') }}
+                        {{ form_widget(form.password, { 'attr': {'class': 'au-input au-input--full'} }) }}
+                       </div>
+                        <br>
+                        <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">{{ button_label|default('Save') }}</button>
+
 {{ form_end(form) }}

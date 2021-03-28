@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<style>
+ body,
+ html {
+     height: 100%;
+     width: 100%;
+     margin: 0;
+     padding: 0;
+   
+     background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f9368347-e982-4856-a5a4-396796381f28/RS-en-20191230-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+ }
+
+ .search {
+     margin-bottom: auto;
+     margin-top: auto;
+     height: 70px;
+     background-color: #fff;
+     border-radius: 40px;
+     padding: 10px
+ }
+
+ .search_input {
+     color: black;
+     border: 0;
+     outline: 0;
+     background: none;
+     width: 0;
+     margin-top: 5px;
+     caret-color: transparent;
+     line-height: 40px;
+     transition: width 0.4s linear
+ }
+
+ .search .search_input {
+     padding: 0 10px;
+     width: 550px;
+     caret-color: red;
+     transition: width 0.4s linear
+ }
+
+ .search:hover>.search_icon {
+     background: red;
+     color: #fff
+ }
+
+ .search_icon {
+     height: 50px;
+     width: 50px;
+     float: right;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 50%;
+     color: white;
+     background-color: black
+ }
+
+ a:link {
+     text-decoration: none
+ }
+</style>
+{# <div style=" background-color: #111111;"> #}
+
+ <div class="container h-100">
+ <div class="navbar transparent navbar-inverse navbar-fixed-top">
+   <nav class="navbar-inner">
+   <a href="#"  style="color:red">yyuyy</a>
+</div>
+     <div class="d-flex justify-content-center h-100">
+        <form method="post" action="{{path('app_comment_search')}}">
+        
+                      <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}">
+         <div class="search"> 
+            <input class="search_input" type="text" name="search" placeholder="Search here..."> <input type="submit" value="search"class="search_icon">
+         </div>
+           
+        </form>
+     </div>
+ </div>
+{% endblock %}

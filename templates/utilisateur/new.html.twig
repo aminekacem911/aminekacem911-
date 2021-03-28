@@ -1,6 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {# <h1>Create new Utilisateur</h1>
+
+    {{ include('utilisateur/_form.html.twig') }} #}
+
+   
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a href="#">
+                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                            </a>
+                        </div>
+                        <div class="login-form">
+                         {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+                          {{ include('utilisateur/_form.html.twig') }} 
+                     
+
+                            <div class="register-link">
+                                <p>
+                                    Already have account?
+                                    <a href="{{ path('app_login') }}">Sign In</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+{% endblock %}
+
+{# 
+
 
 {% block title %}Inscription{% endblock %}
-
+        {% block javascripts %}
+    
+        <script src="/js/verif.js"></script>
+        {% endblock %}
 {% block body %}
         <h1>Inscription</h1>
 
@@ -8,7 +59,7 @@
                 <legend>Inscrivez vous</legend>
                 {{ form_start(form, {'attr': {'id': 'new_edit_utilisateur'}}) }}
                 {# utilisation de classes bootstrap pour la mise en forme #}
-                <div class="row">
+                {# <div class="row">
                         <div class="col-12">
                                 {{ form_label(form.email) }}
                                 {{ form_widget(form.email) }}
@@ -28,4 +79,4 @@
         </fieldset>
 
         <a class="btn btn-info" href="{{ path('home') }}">Page d'accueil</a>
-{% endblock %}
+{% endblock %} #} 
