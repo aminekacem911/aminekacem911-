@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Session\Session;
 use SparksCoding\MovieInformation\MovieInformation;
+use Symfony\Component\HttpFoundation\Request;
 use hmerritt\Imdb;
 class NavigationController extends AbstractController
 {
@@ -27,33 +28,52 @@ class NavigationController extends AbstractController
                 return $this->render('navigation/home.html.twig', $return);
     }
 
-        /**
-         * @Route("/membre", name="membre")
-         */
-    public function membre(Session $session)
-        {
-                $return = [];
-               // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-                if($session->has('message'))
-                {
-                        $message = $session->get('message');
-                        $session->remove('message'); //on vide la variable message dans la session
-                        $return['message'] = $message; //on ajoute à l'array de paramètres notre message
-                }
-                return $this->render('navigation/membre.html.twig', $return);
-        }
-         /**
-         * @Route("/movies", name="movies")
-         */
-    public function movies(Session $session)
+    /**
+     * @Route("/search")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     */
+    public function search(Request $request): Response
     {
-       // $movie = new MovieInformation('The Matrix', array('plot'=>'full', 'tomatoes'=>'true'));
-        //$title = $movie->title; 
-        $imdb = new Imdb;
-        $res = $imdb->film("the lod of the rings");
-            return $this->render('navigation/movies.html.twig',compact('res'));
-    }
+        $form = $request->request->all();
+        if (isset($form['search'])) {
+            $imdb = new Imdb;
+            $res = $imdb->film($form['search']);
+           $title = $res['title'];
+            #return $this->redirectToRoute('app_comment_data',array($title));
+            return $this->redirectToRoute(
+                'app_comment_data',
+                array('key' => $title),
+                Response::HTTP_MOVED_PERMANENTLY // = 301
+            );
+        }
+            
+    
 
+
+        return $this->render('search/index.html.twig');
+    }
+   /**
+     * @Route("/data")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     */
+    public function data(Request $request): Response
+    {
+        
+        $key = $request->query->get('key');
+
+        //dd($res);
+         $imdb = new Imdb;
+         $res = $imdb->film($key);
+           
+         $comments = $this->getDoctrine()
+        ->getRepository(Comment::class)
+        ->findspecApp($key);
+        //dd($comments);
+       
+
+        return $this->render('search/data.html.twig',compact('res','comments'));
+    }
+   
         /**
          * @Route("/admin", name="admin")
          */

@@ -56,4 +56,30 @@ class CommentRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    public function findspecApp($name)
+    {
+        
+            return $this->createQueryBuilder('c')
+            ->andWhere('c.approve = 1')
+            ->andWhere('c.film = :film')
+            ->setParameter('film', $name)
+            ->getQuery()
+            ->getResult();
+    }
+    public function findFilmcomments($name)
+    {
+        //$name = 'Dragonquest';
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.approve = 1')
+        ->andWhere('c.film = :film')
+        ->setParameter('film', $name)
+        ->getQuery()
+        ->getResult();
+
+        
+        
+        
+
+    
+    }
 }

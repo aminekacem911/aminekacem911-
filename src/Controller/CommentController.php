@@ -13,47 +13,7 @@ use hmerritt\Imdb;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class CommentController extends AbstractController
 {
-    /**
-     * @Route("/search")
-     * @IsGranted("IS_AUTHENTICATED_FULLY")
-     */
-    public function search(Request $request): Response
-    {
-        $form = $request->request->all();
-        if (isset($form['search'])) {
-            $imdb = new Imdb;
-            $res = $imdb->film($form['search']);
-           $title = $res['title'];
-            #return $this->redirectToRoute('app_comment_data',array($title));
-            return $this->redirectToRoute(
-                'app_comment_data',
-                array('key' => $title),
-                Response::HTTP_MOVED_PERMANENTLY // = 301
-            );
-        }
-            
     
-
-
-        return $this->render('search/index.html.twig');
-    }
-   /**
-     * @Route("/data")
-     * @IsGranted("IS_AUTHENTICATED_FULLY")
-     */
-    public function data(Request $request): Response
-    {
-        
-        $key = $request->query->get('key');
-
-        //dd($res);
-         $imdb = new Imdb;
-         $res = $imdb->film($key);
-
-
-
-        return $this->render('search/data.html.twig',compact('res'));
-    }
     
     /**
      * @Route("/comment/new", name="comment_new")

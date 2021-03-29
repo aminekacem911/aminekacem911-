@@ -1,172 +1,141 @@
+
+                {# <h1>Unlimited movies, TV <br>shows, and more.</h1> #}
+                
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-       
-       <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
-      <link href="/css/accordion.css" rel="stylesheet" media="all">
-  
-        {% endblock %}
 
-
-        {% block javascripts %}
-          <script src="/js/script.js"></script>
-        {% endblock %}
-        
-{% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-  <div class="navbar">
-<li class="logo"><img src="https://www.searchpng.com/wp-content/uploads/2019/02/Netflix-Logo-PNG-image-200x200.png"></li>
-<li class="button1"></li>
-<li class="button1"></li>
-<li ><a href="{{ path('app_login')}}" class="buttons">Sign In</a></li>
-<li ><a href="{{ path('register')}}" class="buttons">Sign Up</a></li>
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
 
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          
+          <h1>Unlimited movies, TV <br>shows, and more.</h1> 
+          
+      </div>
     </div>
-<div class="main">
-        <div class="area">
-                <h1>Unlimited movies, TV <br>shows, and more.</h1>
-                
-        </div>
 
-</div>
-<div class="container1">
-        <div class="text">
-                <h1>Enjoy on your TV.
-                </h1>
-                <p>
-                        Watchx on Smart TVs, Playstation, Xbox, <br>
-                        Chromecast, Apple TV, Blu-ray players, and<br>
-                        more.
-                </p>
-        </div>
-        <div class="image">
-                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png">
-        </div>
-</div>
-<div class="container1">
+  </section><!-- End Hero -->
 
-        <div class="image">
-                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile.png">
-        </div>
-        <div class="text">
-                <h1>Download your shows to watch on the go.
-                </h1>
-                <p>
-                        Save your data and watch all your favorites offline.
-                </p>
-        </div>
+  <main id="main">
 
-</div>
-<div class="container1">
-        <div class="text">
-                <h1>Watch everywhere.
-
-                </h1>
-                <p>
-                        Stream unlimited movies and TV shows on <br>your phone, tablet, laptop, and TV without paying
-                        more.
-
-                </p>
-        </div>
-        <div class="image">
-                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png">
-        </div>
-</div>
-<div class="container">
+    
  
-  <h2>Frequently Asked Questions</h2>
- 
-  <div class="accordion">
-    <div class="accordion-item">
-      <a>What can JavaScript Do?</a>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+   
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3>Call To Action</h3>
+            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Call To Action</a>
+          </div>
+        </div>
+<hr class="hr" >
       </div>
-    </div>
-    <div class="accordion-item">
-      <a>How JavaScript Can Modify HTML and CSS Values?</a>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+        
+    </section><!-- End Cta Section -->
+     <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3>Call To Action</h3>
+            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Call To Action</a>
+          </div>
+        </div>
+ <hr class="hr" >
       </div>
-    </div>
-    <div class="accordion-item">
-      <a>What Is SVG?</a>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <a>Is FAQ Section Matters In Website?</a>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <a>How To Create a Light FAQ Element?</a>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
-    </div>
-  </div>
-  
-</div>
-</div>
-<div class="footer">
+     
+    </section><!-- End Cta Section -->
+     <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
 
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3>Call To Action</h3>
+            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Call To Action</a>
+          </div>
+        </div>
+<hr class="hr" >
+      </div>  
+    </section><!-- End Cta Section -->
 
-        <div class="footercon">
-                <div class="flex1">
-                        <h5>Questions? Call 1-866-579-7172
-                        </h5>
-                        <h5>
-                        </h5>
-                </div>
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
 
-                <ul class="list1">
-
-                        <li><a href="">FAQ</a></li>
-                        <li><a href="">Investor Relation</a></li>
-                        <li><a href="">Ways to Watch</a></li>
-
-                        <li><a href="">Corporate Information</a></li>
-                        <li><a href="">Netflix Originals</a></li>
-                </ul>
-                <ul class="list1">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Jobs</a></li>
-                        <li><a href="">Terms of Use</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">#</a></li>
-                </ul>
-                <ul class="list1">
-                        <li><a href="">Account</a></li>
-                        <li><a href="">Redeem Gift Cards</a></li>
-                        <li><a href="">Privacy</a></li>
-                        <li><a href="">Speed Test</a></li>
-                        <li><a href="">#</a></li>
-
-                </ul>
-                <ul class="list1">
-                        <li><a href="">Media Center</a>
-                        </li>
-                        <li><a href="">Buy Gift Cards</a></li>
-                        <li><a href="">Cookie Preferences</a></li>
-                        <li><a href="">Legal Notices</a></li>
-                        <li><a href="">#</a></li>
-
-                </ul>
-
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-</div>
-<div class="end">
-        <h2>
-                Netflix US
-        </h2>
-        <h2>
-        </h2>
-</div>
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                <p>
+                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                </p>
+              </div>
+            </li>
 
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-parent=".faq-list">
+                <p>
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
 
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-parent=".faq-list">
+                <p>
+                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                </p>
+              </div>
+            </li>
 
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-parent=".faq-list">
+                <p>
+                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="500">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-parent=".faq-list">
+                <p>
+                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+   
+  </main><!-- End #main -->
 {% endblock %}

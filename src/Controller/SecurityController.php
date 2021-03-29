@@ -40,7 +40,7 @@ class SecurityController extends AbstractController
                         if (in_array('ROLE_ADMIN', $u->getRoles())) {
                                 $url = 'admin';
                         } else {
-                                $url = 'membre' ;
+                                $url = 'app_comment_search' ;
 
                         }return $this->redirectToRoute($url);
                     }
