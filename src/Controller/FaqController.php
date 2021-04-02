@@ -38,7 +38,7 @@ class FaqController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($faq);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Faq addedd!');
             return $this->redirectToRoute('faq_index');
         }
 
@@ -68,7 +68,7 @@ class FaqController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Faq updated successfully!');
             return $this->redirectToRoute('faq_index');
         }
 
@@ -88,7 +88,7 @@ class FaqController extends AbstractController
             $entityManager->remove($faq);
             $entityManager->flush();
         }
-
+        $this->addFlash('success', 'Faq deleted successfully!');
         return $this->redirectToRoute('faq_index');
     }
 }

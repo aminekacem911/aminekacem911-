@@ -82,6 +82,7 @@ class CommentController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($obj);
         $em->flush();
+        $this->addFlash('success', 'Comment approved!');
         $referer = filter_var($request->headers->get('referer'), FILTER_SANITIZE_URL);
                         return $this->redirect($referer);
     }
@@ -100,6 +101,7 @@ class CommentController extends AbstractController
      
         $em->remove($obj);
         $em->flush();
+        $this->addFlash('success', 'Comment deleted');
         $referer = filter_var($request->headers->get('referer'), FILTER_SANITIZE_URL);
                         return $this->redirect($referer);
     }

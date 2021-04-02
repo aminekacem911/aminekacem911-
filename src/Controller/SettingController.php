@@ -36,7 +36,7 @@ class SettingController extends AbstractController
             $entityManager=$this->getDoctrine()->getManager();
             $entityManager->persist($set);
             $entityManager->flush();
-            
+            $this->addFlash('success', 'Settings  updated successfully!');
         }
 
         return $this->render('setting/edit.html.twig', [

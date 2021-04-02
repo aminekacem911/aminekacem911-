@@ -22,14 +22,14 @@ class SecurityController extends AbstractController
         {
             
               
-
-                if($session->has('message'))
-                {
-                        $message = $session->get('message');
-                        $session->remove('message'); //on vide la variable message dans la session
-                        $return['message'] = $message; //on ajoute à l'array de paramètres notre message
+                $errors = $authenticationUtils->getLastAuthenticationError();
+                if($errors){
+                        $this->addFlash('error', 'invalid credentials!');
                 }
                 $utilisateur = new Utilisateur();
+
+                $form = $request->request->all();
+                
                 $user = $rep->findAll();
                 foreach ($user as $u) {
                     if ($u->getEmail() == $request->request->get('email')) {
@@ -38,10 +38,13 @@ class SecurityController extends AbstractController
                         } else {
                                 $url = 'app_navigation_search' ;
 
-                        }return $this->redirectToRoute($url);
+                        }
+                        
+                        return $this->redirectToRoute($url);
                     }
+                       
                 }
-            
+              
                 return $this->render('security/login.html.twig');
         }
 
