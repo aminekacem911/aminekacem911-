@@ -11,11 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class UtilisateurController extends AbstractController
 {
     /**
-     * @Route("/", name="utilisateur_index", methods={"GET"})
+     * @Route("/users", name="utilisateur_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(UtilisateurRepository $utilisateurRepository, Session $session): Response
     {
@@ -36,44 +37,11 @@ class UtilisateurController extends AbstractController
             return $this->redirectToRoute('home');
     }
 
-//     /**
-//      * @Route("/register", name="register", methods={"GET","POST"})
-//      */
-//     public function new( UtilisateurRepository $rep ,  Request $request, UserPasswordEncoderInterface $passwordEncoder, Session $session): Response
-//     {
 
-              
-//             $utilisateur = new Utilisateur();
-
-//             $form = $this->createForm(UtilisateurType::class, $utilisateur);
-//             $form->handleRequest($request);
-//                 $user = $rep->findAll();
-//                 foreach ($user as $u){
-//                         //dd($form['email']->getData());
-//                         //dd($u->getEmail());
-//                         if ($u->getEmail() == $form['email']->getData()){
-//                                 $this->addFlash('error', 'email already in use!');
-//                                return $this->redirectToRoute('register');
-//                         }
-//                 }
-//                 if ($form->isSubmitted() && $form->isValid()) {
-//                         $entityManager = $this->getDoctrine()->getManager();
-//                         $utilisateur->setPassword($passwordEncoder->encodePassword($utilisateur, $utilisateur->getPassword()));
-    
-//                         $entityManager->persist($utilisateur);
-//                         $entityManager->flush();
-    
-//                         return $this->redirectToRoute('membre');
-//                 }
-    
-//                 return $this->render('utilisateur/new.html.twig', [
-//                 'utilisateur' => $utilisateur,
-//                 'form' => $form->createView(),
-//                 ]);
-//     }
 
     /**
      * @Route("/{id}", name="utilisateur_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Utilisateur $utilisateur): Response
     {
@@ -84,6 +52,7 @@ class UtilisateurController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="utilisateur_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Utilisateur $utilisateur, UserPasswordEncoderInterface $passwordEncoder, Session $session, $id): Response
@@ -113,6 +82,7 @@ class UtilisateurController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="utilisateur_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Utilisateur $utilisateur, Session $session, $id): Response

@@ -3,8 +3,6 @@
 
 {% block body %}
 <style>
- 
-
   .comments {
     margin-top: 5%;
     margin-left: 20px
@@ -43,101 +41,83 @@
   .darker span {
     color: rgb(184, 183, 183)
   }
- 
-
-
-
 </style>
-
-  <div class="row">
-    <div class="col-md-8 col-xs-8">
-      <div class="row py-5 px-4">
-        <div class="mx-auto">
-          <!-- Profile widget -->
-          <div class="bg-white shadow rounded overflow-hidden" style="width:700px">
-            <div class="px-4 pt-0 pb-4 cover">
-              <div class="media align-items-end profile-head">
-                <div class="profile mr-3"><img
-                    src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
-                    alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#"
-                    class="btn btn-outline-dark btn-sm btn-block">Edit profile</a></div>
-                <div class="media-body mb-5 text-white">
-                  <h4 class="mt-0 mb-0">Mark Williams</h4>
-                  <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>New York</p>
-                </div>
+<div class="container p-4">
+<div class="row">
+  <div class="col-md-8">
+      <div class="mx-auto">
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden" style="width:600px">
+          <div class="px-4 pt-0 pb-4 cover">
+            <div class="media align-items-end profile-head">
+              <div class="profile mr-3"><img src="{{ res.poster }}" alt="..." width="130"
+                  class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block"
+                  disabled>{{ res.title }}</a></div>
               </div>
             </div>
             <div class="bg-light p-4 d-flex justify-content-end text-center">
               <ul class="list-inline mb-0">
+
                 <li class="list-inline-item">
-                  <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i
-                      class="fas fa-image mr-1"></i>Photos</small>
-                </li>
-                <li class="list-inline-item">
-                  <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i
-                      class="fas fa-user mr-1"></i>Followers</small>
-                </li>
-                <li class="list-inline-item">
-                  <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i
-                      class="fas fa-user mr-1"></i>Following</small>
+                <h5 class="font-weight-bold mb-0 d-block">Rating</h5><small class="text-muted"> <i class="fa fa-star"
+                    aria-hidden="true"></i>
+                  {{ res.rating }}</small>
                 </li>
               </ul>
             </div>
             <div class="px-4 py-3">
-              <h5 class="mb-0">About</h5>
+              <h5 class="mb-0">Description</h5>
               <div class="p-4 rounded shadow-sm bg-light">
-                <p class="font-italic mb-0">Web Developer</p>
-                <p class="font-italic mb-0">Lives in New York</p>
-                <p class="font-italic mb-0">Photographer</p>
+                <p class="font-italic mb-0">{{ res.plot }}</p>
               </div>
             </div>
             <div class="py-4 px-4">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
-              </div>
-              <div class="row">
-               <div class=" mt-4 text-justify">
-                  
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <h5 class="mb-0"></h5><a href="{{ res.trailer.link }}" class="btn btn-link text-muted">View Trailer</a>
+                </div>
+                <div class=" mt-4 text-justify">
                   <h3>FAN OF THIS MOVIE ! BE THE FIRST ONE TO COMMENT AND GIVE US YOUR OPINION ABOUT IT !!!!</h3>
-                </div> 
-          {# {% for comment in comments %}
-           <div class="comment mt-4 text-justify" > <img src="https://i.imgur.com/yTFUilP.jpg" alt=""
-                    class="rounded-circle" width="40" height="40">
-                  <h4 >{{comment.user}}</h4> <span>**</span> <br>
-                  <p><b>{{comment.comment}}<b></p>
                 </div>
-        {% else %}
-           <div class="comment text-justify"> 
-                  
-                  <p>No Comments found !!!</p>
-                </div>
-        {% endfor %} #}
-                
-               
-              </div>
+                        {% for comment in comments %}
+                    <div class="card p-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="user d-flex flex-row align-items-center"> <img src="https://i.imgur.com/yTFUilP.jpg" width="30" class="user-img rounded-circle mr-2">
+                                <span><small class="font-weight-bold text-primary">{{ comment.user }}</small><br> <small class="font-weight-bold">{{ comment.comment }}</small></span>
+                              </div> 
+                          </div> 
+                    </div>
+                       {% else %}
+                    <div class="comment text-justify"> 
+                        <p>No Comments found !!!</p>
+                    </div>
+                      {% endfor %} 
             </div>
-          </div>
+          </div>   
         </div>
+        </div>
+
+  <div class="col-md-4">
+
+
+    <form action="{{ path('comment_new') }}" method="post">
+      <div class="form-group">
+        <h4>Leave a comment</h4> <label for="message">Message</label> <textarea type="text" name="comment" id="" msg
+          cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
       </div>
-    </div>
-    <div class="col-md-4 col-xs-4row py-5 px-4">
-
-
-      <form action="{{path('comment_new')}}" method="post">
-        <div class="form-group">
-          <h4>Leave a comment</h4> <label for="message">Message</label> <textarea type="text" name="comment" id="" msg cols="30"
-            rows="5" class="form-control" style="background-color: black;"></textarea>
-        </div>
-<input type="hidden" name="user" value="{{ app.user.email }}" >
-        <div class="form-group"> <label for="email">Email</label> <input type="text" name="user" value=  "{{ app.user.email }}" disabled
-            class="form-control"> </div>
-        <input type="hidden" name="approve" >
-        <input type="hidden" name="film" value="{{res.title}}">
-        <center><div class="form-group"> <button type="submit" id="post" class="btn btn-success btn-lg">Post Comment</button> </div></center>
-      </form>
-    </div>
-
+      <input type="hidden" name="user" value="{{ app.user.email }}">
+      <div class="form-group"> <label for="email">Email</label> <input type="text" name="user" value="{{ app.user.email }}"
+          disabled class="form-control"> 
+      </div>
+      <input type="hidden" name="approve">
+      <input type="hidden" name="film" value="{{ res.title }}">
+      <center>
+        <div class="form-group"> <button type="submit" id="post" class="btn btn-success btn-lg">Post
+            Comment</button> </div>
+      </center>
+    </form>
   </div>
 
+
+</div>
 </div>
 {% endblock %}

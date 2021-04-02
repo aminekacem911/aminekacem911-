@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 use App\Entity\Utilisateur;
 use App\Entity\Setting;
+use App\Entity\Faq;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -31,6 +32,13 @@ class AppFixtures extends Fixture
         $setting->setTitle('NetflixMDB');
         $setting->setLogo('logo.png');
         $setting->setMobile('+21693387306');
+        $manager->persist($setting);
+        $manager->flush();
+
+
+        $faq = new Faq();
+        $setting->setQuestion('whats this website ?');
+        $setting->setAnswer('Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.');
         $manager->persist($setting);
         $manager->flush();
     }

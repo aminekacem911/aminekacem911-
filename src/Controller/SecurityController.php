@@ -21,11 +21,7 @@ class SecurityController extends AbstractController
         public function login(Request $request, UtilisateurRepository $rep ,AuthenticationUtils $authenticationUtils, Session $session): Response
         {
             
-               // $error = $authenticationUtils->getLastAuthenticationError();
-                // last username entered by the user
-                //$lastUsername = $authenticationUtils->getLastUsername();
-
-                //$return = ['last_username' => $lastUsername, 'error' => $error];
+              
 
                 if($session->has('message'))
                 {
@@ -40,7 +36,7 @@ class SecurityController extends AbstractController
                         if (in_array('ROLE_ADMIN', $u->getRoles())) {
                                 $url = 'admin';
                         } else {
-                                $url = 'app_comment_search' ;
+                                $url = 'app_navigation_search' ;
 
                         }return $this->redirectToRoute($url);
                     }

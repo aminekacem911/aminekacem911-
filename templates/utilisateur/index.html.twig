@@ -3,38 +3,9 @@
 {% block title %}Utilisateur index{% endblock %}
 
 {% block body %}
-    {# <h1>Utilisateur index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-          
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for utilisateur in utilisateurs %}
-            <tr>
-                <td>{{ utilisateur.id }}</td>
-                <td>{{ utilisateur.email }}</td>
-                <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
-                <td>
-                
-                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table> #}
 
                             <div class="col-lg-12">
+                            
                                 <!-- USER DATA-->
                                 <div class="user-data m-b-30">
                                     <h3 class="title-3 m-b-30">
@@ -74,11 +45,7 @@
                                                         <span class="role admin">{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</span>
                                                     </td>
                                                    
-                                                    {# <td>
-                                                        <span class="more">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </span>
-                                                    </td> #}
+                                                
                                                 </tr>
                                               {% endfor %}
                                             </tbody>

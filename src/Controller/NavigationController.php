@@ -2,30 +2,29 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use hmerritt\Imdb;
+use App\Entity\Comment;
+use App\Entity\Setting;
+use App\Entity\Utilisateur;
+use App\Repository\SettingRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\HttpFoundation\Session\Session;
 use SparksCoding\MovieInformation\MovieInformation;
-use Symfony\Component\HttpFoundation\Request;
-use hmerritt\Imdb;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\FaqRepository;
 class NavigationController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function home(Session $session)
+    public function home(SettingRepository $rep,FaqRepository $faqRepository)
     {
-        $return = [];
-
-                if($session->has('message'))
-                {
-                        $message = $session->get('message');
-                        $session->remove('message'); //on vide la variable message dans la session
-                        $return['message'] = $message; //on ajoute à l'array de paramètres notre message
-                }
-                return $this->render('navigation/home.html.twig', $return);
+        $faqs = $faqRepository->findAll();
+        $setting =$rep->find(1);
+        return $this->render('navigation/home.html.twig',compact('setting','faqs'));
     }
 
     /**
@@ -41,7 +40,7 @@ class NavigationController extends AbstractController
            $title = $res['title'];
             #return $this->redirectToRoute('app_comment_data',array($title));
             return $this->redirectToRoute(
-                'app_comment_data',
+                'app_navigation_data',
                 array('key' => $title),
                 Response::HTTP_MOVED_PERMANENTLY // = 301
             );
@@ -87,7 +86,21 @@ class NavigationController extends AbstractController
                 }
 
                 if (in_array('ROLE_ADMIN', $utilisateur->getRoles())){
-                        return $this->render('navigation/admin.html.twig');
+                    $em = $this->getDoctrine()->getManager();
+                    $repComment = $em->getRepository(Comment::class);
+                    $countC = $repComment->createQueryBuilder('a')
+                   
+                    ->select('count(a.id)')
+                    ->getQuery()
+                    ->getSingleScalarResult();
+                    $repUsers = $em->getRepository(Utilisateur::class);
+                    $countU = $repUsers->createQueryBuilder('u')
+                   
+                    ->select('count(u.id)')
+                    ->getQuery()
+                    ->getSingleScalarResult();
+                   
+                        return $this->render('navigation/admin.html.twig',compact('countC','countU'));
                 }
               
                 //return $this->redirectToRoute('/membre', $return);

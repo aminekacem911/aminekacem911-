@@ -1,12 +1,9 @@
-
 {% extends 'navigation/adminBase.html.twig' %}
 
 {% block body %}
 
 
-    {# {{ include('setting/_form.html.twig', {'button_label': 'Update'}) }}
 
-    #}
 <div class="section__content section__content--p30">
     <div class="container-fluid">
         <div class="row">
@@ -19,8 +16,23 @@
 
                             <h3 class="text-center title-2">Informations</h3>
                         </div>
-                        <hr>
-                           <img src="{{asset('img/')}}{{setting.logo}}" style="width:300px;height:300px" alt="">
-                        {{ include('setting/_form.html.twig', {'button_label': 'Update'}) }}
+                        <div class="row">
+                            <div class="col-md-8">
+                                {{ include('setting/_form.html.twig', {'button_label': 'Update'}) }}
+                            </div>
                         
+                        <div class="col-md-4">
+
+
+                            <img src="{{ asset('img/') }}{{ setting.logo }}"
+                                style="width:300px;height:300px" alt="">
+                        </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
