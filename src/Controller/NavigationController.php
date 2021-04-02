@@ -24,6 +24,7 @@ class NavigationController extends AbstractController
     {
         $faqs = $faqRepository->findAll();
         $setting =$rep->find(1);
+      //  dd($setting);
         return $this->render('navigation/home.html.twig',compact('setting','faqs'));
     }
 
@@ -31,8 +32,9 @@ class NavigationController extends AbstractController
      * @Route("/search")
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
-    public function search(Request $request): Response
+    public function search(Request $request,SettingRepository $rep,): Response
     {
+        $setting =$rep->find(1);
         $form = $request->request->all();
         if (isset($form['search'])) {
             $imdb = new Imdb;
@@ -49,15 +51,15 @@ class NavigationController extends AbstractController
     
 
 
-        return $this->render('search/index.html.twig');
+        return $this->render('search/index.html.twig',compact('setting'));
     }
    /**
      * @Route("/data")
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
-    public function data(Request $request): Response
+    public function data(Request $request,SettingRepository $rep, ): Response
     {
-        
+        $setting =$rep->find(1);
         $key = $request->query->get('key');
 
         //dd($res);
@@ -70,7 +72,7 @@ class NavigationController extends AbstractController
         //dd($comments);
        
 
-        return $this->render('search/data.html.twig',compact('res','comments'));
+        return $this->render('search/data.html.twig',compact('res','comments','setting'));
     }
    
         /**
@@ -106,5 +108,6 @@ class NavigationController extends AbstractController
                 //return $this->redirectToRoute('/membre', $return);
 
         }
+       
 
 }
