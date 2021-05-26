@@ -81,7 +81,7 @@
                         {% for comment in comments %}
                     <div class="card p-3">
                           <div class="d-flex justify-content-between align-items-center">
-                              <div class="user d-flex flex-row align-items-center"> <img src="https://i.imgur.com/yTFUilP.jpg" width="30" class="user-img rounded-circle mr-2">
+                              <div class="user d-flex flex-row align-items-center"> <img src="../../public/front_files/assets/img/avatar.jpg"  width="30" class="user-img rounded-circle mr-2">
                                 <span><small class="font-weight-bold text-primary">{{ comment.user }}</small><br> <small class="font-weight-bold">{{ comment.comment }}</small></span>
                               </div> 
                           </div> 
@@ -101,8 +101,8 @@
 
     <form action="{{ path('comment_new') }}" method="post">
       <div class="form-group">
-        <h4>Leave a comment</h4> <label for="message">Message</label> <textarea type="text" name="comment" id="" msg
-          cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+        <h4 style="color:yellow">Leave a comment</h4> <label style="color:yellow" for="message">Message</label> <textarea type="text" name="comment" id="" msg
+          cols="30" rows="5" class="form-control" style="background-color: white;"></textarea>
       </div>
       <input type="hidden" name="user" value="{{ app.user.email }}">
       <div class="form-group"> <label for="email">Email</label> <input type="text" name="user" value="{{ app.user.email }}"

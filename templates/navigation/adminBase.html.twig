@@ -33,7 +33,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                       
+
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -49,19 +49,12 @@
                             <a class="js-arrow" href="{{ path('admin') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        {# <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>sections</a>
-                        </li> #}
+
                         <li>
                             <a href="{{ path('faq_index') }}">
                                 <i class="fas fa-chart-bar"></i>Faq</a>
                         </li>
-                        <li>
-                            <a
-                                href="{{ path('setting_edit', {'id': 1}) }}">
-                                <i class="fas fa-table"></i>setting</a>
-                        </li>
+
                         <li>
                             <a href="/users">
                                 <i class="far fa-check-square"></i>users</a>
@@ -70,9 +63,11 @@
                             <a href="{{ path('comment_approve') }}">
                                 <i class="fas fa-calendar-alt"></i>comments</a>
                         </li>
-
-
-
+                        <li>
+                            <a
+                                href="{{ path('setting_edit', {'id': 1}) }}">
+                                <i class="fas fa-table"></i>setting</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -135,7 +130,7 @@
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                       
+
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Admin</a>
                                         </div>
@@ -148,7 +143,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                 
+
                                                     <span class="email">{{ app.user.email }}</span>
                                                 </div>
                                             </div>
@@ -176,7 +171,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
-                        <p>Copyright © 2021 All rights reserved.</p>
+
+                        <p>Copyright © {{ "now"|date('Y') }} All rights
+                            reserved.</p>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route("/setting")
  */
@@ -21,16 +20,16 @@ class SettingController extends AbstractController
     /**
      * @Route("/{id}/edit", name="setting_edit", methods={"GET","POST"})
      */
-    public function edit(SettingRepository $rep,Request $request, Setting $setting): Response
+    public function edit(SettingRepository $rep, Request $request, Setting $setting): Response
     {
-    
+        //function set info website
         $set =$rep->find($setting);
-        $form = $this->createForm(SettingType::class,$setting);
+        $form = $this->createForm(SettingType::class, $setting);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('logo')->getData();
             $fileName=md5(uniqid()).'.'.$imageFile->getExtension();
-            $imageFile->move($this->getParameter('image_directory'),$fileName);
+            $imageFile->move($this->getParameter('image_directory'), $fileName);
             $set->setLogo($fileName);
             $article = $form->getData();
             $entityManager=$this->getDoctrine()->getManager();
@@ -44,6 +43,4 @@ class SettingController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    
 }

@@ -5,48 +5,48 @@
 
 {% block body %}
 
-  
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                       
-                        <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                          
-                                            <div class="text">
-                                                <h2>{{ countU }}</h2>
-                                                <span>members </span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas ></canvas>
-                                        </div>
-                                    </div>
-                                </div>
+
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+
+        <div class="row m-t-25">
+            <div class="col-sm-6 col-lg-6">
+                <div class="overview-item overview-item--c1">
+                    <div class="overview__inner">
+                        <div class="overview-box clearfix">
+
+                            <div class="text">
+                                <h2>{{ countU }}</h2>
+                                <span>members </span>
                             </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <center>
-                                            <div class="text">
-                                                <h2>{{ countC }}</h2>
-                                                <span>items solid</span>
-                                            </div>
-                                            </center>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          
                         </div>
-                       
+                        <div class="overview-chart">
+                            <canvas></canvas>
+                        </div>
                     </div>
                 </div>
-           
+            </div>
+            <div class="col-sm-6 col-lg-6">
+                <div class="overview-item overview-item--c2">
+                    <div class="overview__inner">
+                        <div class="overview-box clearfix">
+                            <center>
+                                <div class="text">
+                                    <h2>{{ countC }}</h2>
+                                    <span>Comments</span>
+                                </div>
+                            </center>
+                        </div>
+                        <div class="overview-chart">
+                            <canvas></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}

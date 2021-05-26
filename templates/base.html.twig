@@ -4,29 +4,31 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{{ setting.title }}</title>  
+  <title>{{ setting.title }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-        <link href="/front_files/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
- <link href="/admin_files/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+  <link href="/front_files/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <link href="/admin_files/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
   <!-- Favicons -->
-   <link href="{{asset('img/')}}{{setting.logo}}" rel="icon">
-   <link href="{{asset('img/')}}{{setting.logo}}" rel="apple-touch-icon">
+  <link href="{{ asset('img/') }}{{ setting.logo }}" rel="icon">
+  <link href="{{ asset('img/') }}{{ setting.logo }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-   <link href="/front_files/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <link href="/front_files/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-   <link href="/front_files/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-   <link href="/front_files/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-   <link href="/front_files/assets/vendor/venobox/venobox.css" rel="stylesheet">
-   <link href="/front_files/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-   <link href="/front_files/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/front_files/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/front_files/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/front_files/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/front_files/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/front_files/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/front_files/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/front_files/assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-   <link href="/front_files/assets/css/style.css" rel="stylesheet">
+  <link href="/front_files/assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Arsha - v2.3.1
@@ -37,144 +39,146 @@
 </head>
 
 <body>
-<style>
- 
+  <style>
+    .navbar-nav>li>a {
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-right: 20px;
+      color: #fff
+    }
+
+    .navbar-toggler {
+      padding: .20rem .50rem;
+      font-size: 1.25rem;
+      line-height: 1;
+      background-color: transparent;
+      border: 1px solid white
+    }
+
+    .nav-link {
+      color: #fff !important
+    }
+
+    .wrapper {
+      width: 100%;
+      position: absolute;
+      height: 100%;
+      background-color: #000;
+      clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 71% 100%);
+      transition: 1s all
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-family: 'Allerta Stencil', sans-serif;
+      margin-bottom: 4px;
+      font-size: 27px
+    }
+
+    .navbar-red:hover .wrapper {
+      clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 65% 100%)
+    }
+
+    .navbar-brand:hover {
+      color: #fff
+    }
+
+    .navbar-red {
+      background-color: red;
+      color: #fff
+    }
+
+    .all-show {
+      z-index: 10
+    }
+  </style>
 
 
-
-.navbar-nav>li>a {
-   text-transform: uppercase;
-   font-size: 12px;
-   margin-right: 20px;
-   color: #fff
-}
-
-.navbar-toggler {
-   padding: .20rem .50rem;
-   font-size: 1.25rem;
-   line-height: 1;
-   background-color: transparent;
-   border: 1px solid white
-}
-
-.nav-link {
-   color: #fff !important
-}
-
-.wrapper {
-   width: 100%;
-   position: absolute;
-   height: 100%;
-   background-color: #000;
-   clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 71% 100%);
-   transition: 1s all
-}
-
-.navbar-brand {
-   color: #fff;
-   font-family: 'Allerta Stencil', sans-serif;
-   margin-bottom: 4px;
-   font-size: 27px
-}
-
-.navbar-red:hover .wrapper {
-   clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 65% 100%)
-}
-
-.navbar-brand:hover {
-   color: #fff
-}
-
-.navbar-red {
-   background-color: red;
-   color: #fff
-}
-
-.all-show {
-   z-index: 10
-}
-
-</style>
-
-
-<body style="background-color:black">
-  <nav class="navbar navbar-expand-lg navbar-red navbar-dark">
-    <div class="wrapper"> </div>
-    <div class="container-fluid all-show"> <a class="navbar-brand" href="#">{{ setting.title }} <i class="fa fa-codepen"></i></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <body style="background-color:black">
+    <nav class="navbar navbar-expand-lg navbar-red navbar-dark">
+      <div class="wrapper"> </div>
+      <div class="container-fluid all-show"> <a class="navbar-brand" href="#">{{ setting.title }} <i
+            class="fa fa-codepen"></i></a> <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-               
-            </ul>
-             {% if app.user %}
-            <div class="d-flex flex-column sim"> {{ app.user.email }}<span><a href="{{ path('app_logout') }}">Logout</a></span> </div>
-            {% else %}
-                <div class="d-flex flex-column sim"> <span><a href="{{ path('app_login') }}">Sign In</a></span> </div>|
-                 <div class="d-flex flex-column sim"> <span><a href="{{ path('register') }}">Sign Up</a></span> </div>     
-        {% endif %}
-        </div>
-    </div>
-  </nav> 
+          <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
 
-  {% block body %}
-        {% endblock %}
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" >
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-6 col-md-6 footer-contact">
-            <h3>{{ setting.title }}</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> {{ setting.mobile }}<br>
-              <strong>Email:</strong> contact@{{ setting.title }}.com<br>
-            </p>
-          </div>
-
-          
-
-         
-          <div class="col-lg-6 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
+          </ul>
+          {% if app.user %}
+          <div class="d-flex flex-column sim"> {{ app.user.email }}<span><a
+                href="{{ path('app_logout') }}">Logout</a></span> </div>
+          {% else %}
+          <div class="d-flex flex-column sim"> <span><a href="{{ path('app_login') }}">Sign
+                In</a></span> </div>|
+          <div class="d-flex flex-column sim"> <span><a href="{{ path('register') }}">Sign
+                Up</a></span> </div>
+          {% endif %}
         </div>
       </div>
-    </div>
+    </nav>
 
-  </footer><!-- End Footer -->
+    {% block body %}
+    {% endblock %}
 
-  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-  <div id="preloader"></div>
- 
-  <!-- Vendor JS Files -->
-  <script src="/front_files/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="/front_files/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/front_files/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="/front_files/assets/vendor/php-email-form/validate.js"></script>
-  <script src="/front_files/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="/front_files/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/front_files/assets/vendor/venobox/venobox.min.js"></script>
-  <script src="/front_files/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="/front_files/assets/vendor/aos/aos.js"></script>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
 
-  <!-- Template Main JS File -->
-  <script src="/front_files/assets/js/main.js"></script>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
 
-</body>
+            <div class="col-lg-6 col-md-6 footer-contact">
+              <h3>{{ setting.title }}</h3>
+              <p>
+                A108 Adam Street <br>
+                New York, NY 535022<br>
+                United States <br><br>
+                <strong>Phone:</strong> {{ setting.mobile }}<br>
+                <strong>Email:</strong> contact@{{ setting.title }}.com<br>
+              </p>
+            </div>
+
+
+
+
+            <div class="col-lg-6 col-md-6 footer-links">
+              <h4>Our Social Networks</h4>
+              <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+            <center>
+              <p>Copyright © {{ "now"|date('Y') }} All rights reserved.</p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="/front_files/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/front_files/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/front_files/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/front_files/assets/vendor/php-email-form/validate.js"></script>
+    <script src="/front_files/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/front_files/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/front_files/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="/front_files/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/front_files/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/front_files/assets/js/main.js"></script>
+
+  </body>
 
 </html>
-       
