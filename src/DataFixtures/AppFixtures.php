@@ -37,9 +37,9 @@ class AppFixtures extends Fixture
 
 
         $faq = new Faq();
-        $setting->setQuestion('whats this website ?');
-        $setting->setAnswer('Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.');
-        $manager->persist($setting);
+        $faq->setQuestion('whats this website ?');
+        $faq->setAnswer('Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.');
+        $manager->persist($faq);
         $manager->flush();
     }
 }
